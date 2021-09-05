@@ -1,0 +1,18 @@
+package com.yonyoucloud.drools.rules.helloworld;
+
+import com.yonyoucloud.drools.fact.RuleExecutionResult
+
+// 全局变量，此处使用日志服务
+global org.slf4j.Logger log
+
+// 规则-1
+rule "hell-drools"
+when
+    // 条件
+    $result: RuleExecutionResult()
+then
+    // 动作
+    log.info("规则[hell-drools]被执行");
+    $result.setCount($result.getCount() + 1);
+    $result.setMessage("规则[hell-drools]被执行");
+end
